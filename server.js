@@ -54,8 +54,7 @@ app.post("/api/vehical/post-data", (req, res) => {
     "vehicalNumber":req.body.vehicalNumber,
     "ownerNumber":req.body.ownerNumber,
     "price":req.body.price,
-    "commingTiming":req.body.commingTiming,
-    "markOutTime":req.body.markOutTime
+    "markOutTime":""
   });
   vehicalData
     .save()
