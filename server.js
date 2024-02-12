@@ -50,7 +50,13 @@ app.get("/api/vehical", (req, res) => {
 });
 
 app.post("/api/vehical/post-data", (req, res) => {
-  const vehicalData = new vehicalSchema(req.body);
+  const vehicalData = new vehicalSchema({
+    "vehicalNumber":req.body.vehicalNumber,
+    "ownerNumber":req.body.ownerNumber,
+    "price":req.body.price,
+    "commingTiming":req.body.commingTiming,
+    "markOutTime":req.body.markOutTime
+  });
   vehicalData
     .save()
     .then(() => {
