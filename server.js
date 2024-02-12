@@ -54,7 +54,6 @@ app.post("/api/vehical/post-data", (req, res) => {
     "vehicalNumber":req.body.vehicalNumber,
     "ownerNumber":req.body.ownerNumber,
     "price":req.body.price,
-    "commingTiming":mongoose.now(),
     "markOutTime":""
   });
   vehicalData
