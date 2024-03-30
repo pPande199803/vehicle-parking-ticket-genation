@@ -1,9 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const vehicalSchema = require("./models/vehical");
+const vehicalSchema = require("../models/vehical");
 const dotenv = require("dotenv");
 dotenv.config();
+
+const serverless = require("serverless-http")
 
 const accountSid = process.env.ACCOUND_SID;
 const authToken = process.env.AUT_TOKEN;
@@ -131,3 +133,7 @@ app.put("/api/vehical/post-data/:id", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on Port ${process.env.PORT}`);
 });
+
+
+app.use('/.netlify/function/api', app)
+module.exports.handler = serverless(app)
